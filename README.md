@@ -1,6 +1,6 @@
 # hammock-jpms
 
-Hammock MicroProfile HelloWorld using Java Module System (JPMS)
+Hammock MicroProfile (CDI + JAXRS + JSON) HelloWorld using Java Module System (JPMS)
 
 Tested with Java 10.0.1
 
