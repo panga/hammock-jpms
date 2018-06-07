@@ -28,7 +28,7 @@ _Note: Depends on https://issues.jboss.org/browse/WELD-2435 fix._
 
 1. Run jlink to create minimal JRE
 
-```java
+```bash
 jlink \
 	--add-modules java.logging,java.xml,java.naming,java.management,jdk.unsupported \
 	--verbose \
@@ -41,7 +41,7 @@ jlink \
 
 2. Run minimal JRE with patch module for `java.beans`:
 
-```java
+```bash
 target/jlink-image/bin/java \
     --patch-module java.base=target/patch/java.beans \
     --add-exports java.base/java.beans=johnzon.mapper \
