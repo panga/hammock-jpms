@@ -1,8 +1,8 @@
 # Hammock JPMS
 
-Hammock MicroProfile (CDI + JAXRS + JSON) HelloWorld using Java Module System (JPMS).
+[Hammock MicroProfile](https://github.com/hammock-project/hammock) (CDI + JAXRS + JSON) HelloWorld using Java Module System (JPMS).
 
-The stack used is OpenWebBeans 2 for CDI, RestEasy 3.5 for JAXRS and Johnzon 1.1 for JSON.
+The stack uses OpenWebBeans 2 for CDI, RestEasy 3.5 for JAXRS and Johnzon 1.1 for JSON.
 
 The total size of this example application is around `11mb`!
 
@@ -10,11 +10,11 @@ _Note: Tested with Java 10.0.1_
 
 ## How To
 
-### Packaging the application and generating `target/modules` folder
+### Package and generate `target/modules` folder
 
 `mvn clean package`
 
-### Packaging with Weld 3 for CDI
+### Package using with Weld 3 for CDI
 
 `mvn clean package -Pweld`
 
@@ -50,4 +50,4 @@ target/jlink-image/bin/java \
     --module hammock.jpms
 ```
 
-_Note: https://github.com/panga/java-beans-lite was used to patch `java.beans` implementation required by lo4j and johnzon._
+_Note: https://github.com/panga/java-beans-lite was used to patch `java.beans` implementation._
