@@ -50,4 +50,4 @@ target/jlink-image/bin/java \
     --module hammock.jpms
 ```
 
-_Note: https://github.com/panga/java-beans-lite was used to patch `java.beans` implementation required by some 3rd party dependencies and remove the requirement of adding `java.desktop` module into the minimal JRE._
+_Note: https://github.com/panga/lite-beans was used to patch `java.beans` implementation required by some 3rd party dependencies and remove the requirement of adding `java.desktop` module into the minimal JRE._
