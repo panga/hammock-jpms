@@ -4,7 +4,7 @@
 
 The stack uses Weld 3 for CDI, RestEasy 3.5 for JAX-RS and Johnzon 1.1 for JSON
 
-The total size of this example application is around `12mb`!
+The total size of this example application is around `12mb` and the full Docker image is only `58mb`!
 
 _Note: Tested with Java 10.0.1_
 
@@ -16,15 +16,19 @@ _Note: Tested with Java 10.0.1_
 
 _Note: Need to build Weld 3.0.5-SNAPSHOT locally first because of https://issues.jboss.org/browse/WELD-2435 or choose OpenWebBeans profile._
 
+### Package and generate `docker image` (docker + weld profiles)
+
+`mvn clean package -Pweld,docker`
+
+### Package using with OpenWebBeans 2 for CDI (owb profile)
+
+`mvn clean package -Powb`
+
 ### Build Weld 3.0.5-SNAPSHOT locally
 
 1. Clone `https://github.com/weld/core.git`
 
 2. Execute `mvn install`
-
-### Package using with OpenWebBeans 2 for CDI (owb profile)
-
-`mvn clean package -Powb`
 
 ### Run using the default JRE
 
@@ -57,3 +61,11 @@ target/jlink-image/bin/java \
 ```
 
 _Note: https://github.com/panga/lite-beans was used to patch `java.beans` implementation required by some 3rd party dependencies and remove the requirement of adding `java.desktop` module into the minimal JRE._
+
+### Run using the Docker image
+
+`docker run --rm -it -p 8080:8080 hammock-jpms`
+
+### Test the application
+
+`curl http://localhost:8080/hello`
