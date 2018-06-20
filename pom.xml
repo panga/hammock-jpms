@@ -12,6 +12,7 @@
 	<properties>
 		<java.version>10</java.version>
 		<hammock.version>2.2-SNAPSHOT</hammock.version>
+		<weld.version>3.0.5-SNAPSHOT</weld.version>
 	</properties>
 
 	<dependencies>
@@ -189,33 +190,11 @@
 
 	<profiles>
 		<profile>
-			<id>owb</id>
+			<id>weld</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<dependencies>
-				<dependency>
-					<groupId>ws.ament.hammock</groupId>
-					<artifactId>bootstrap-owb2</artifactId>
-					<version>${hammock.version}</version>
-					<exclusions>
-						<exclusion>
-							<groupId>org.apache.geronimo.specs</groupId>
-							<artifactId>*</artifactId>
-						</exclusion>
-					</exclusions>
-				</dependency>
-				<dependency>
-					<groupId>org.apache.xbean</groupId>
-					<artifactId>xbean-finder-shaded</artifactId>
-					<version>4.8</version>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>weld</id>
-			<dependencies>
-				<!-- TODO: https://issues.jboss.org/browse/WELD-2435 -->
 				<dependency>
 					<groupId>ws.ament.hammock</groupId>
 					<artifactId>bootstrap-weld3</artifactId>
@@ -224,7 +203,7 @@
 				<dependency>
 					<groupId>org.jboss.weld.se</groupId>
 					<artifactId>weld-se-core</artifactId>
-					<version>3.0.5-SNAPSHOT</version>
+					<version>${weld.version}</version>
 					<exclusions>
 						<exclusion>
 							<groupId>org.jboss.spec.javax.annotation</groupId>
@@ -247,7 +226,7 @@
 				<dependency>
 					<groupId>org.jboss.weld.servlet</groupId>
 					<artifactId>weld-servlet-core</artifactId>
-					<version>3.0.5-SNAPSHOT</version>
+					<version>${weld.version}</version>
 					<exclusions>
 						<exclusion>
 							<groupId>org.jboss.spec.javax.annotation</groupId>
@@ -267,10 +246,26 @@
 						</exclusion>
 					</exclusions>
 				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>owb</id>
+			<dependencies>
 				<dependency>
-					<groupId>org.jboss.classfilewriter</groupId>
-					<artifactId>jboss-classfilewriter</artifactId>
-					<version>1.2.2.Final</version>
+					<groupId>ws.ament.hammock</groupId>
+					<artifactId>bootstrap-owb2</artifactId>
+					<version>${hammock.version}</version>
+					<exclusions>
+						<exclusion>
+							<groupId>org.apache.geronimo.specs</groupId>
+							<artifactId>*</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.xbean</groupId>
+					<artifactId>xbean-finder-shaded</artifactId>
+					<version>4.8</version>
 				</dependency>
 			</dependencies>
 		</profile>
@@ -280,6 +275,16 @@
 		<repository>
 			<id>ossrh</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>jboss-snapshots-repository</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/snapshots</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>

@@ -1,24 +1,30 @@
 # Hammock JPMS
 
-[Hammock MicroProfile](https://github.com/hammock-project/hammock) (CDI + JAXRS + JSON) HelloWorld using Java Module System (JPMS).
+[Hammock MicroProfile](https://github.com/hammock-project/hammock) (CDI + JAX-RS + JSON) HelloWorld using Java Module System (JPMS).
 
-The stack uses OpenWebBeans 2 for CDI, RestEasy 3.5 for JAXRS and Johnzon 1.1 for JSON.
+The stack uses Weld 3 for CDI, RestEasy 3.5 for JAX-RS and Johnzon 1.1 for JSON
 
-The total size of this example application is around `11mb`!
+The total size of this example application is around `12mb`!
 
 _Note: Tested with Java 10.0.1_
 
 ## How To
 
-### Package and generate `target/modules` folder
+### Package and generate `target/modules` folder (weld profile)
 
 `mvn clean package`
 
-### Package using with Weld 3 for CDI
+_Note: Need to build Weld 3.0.5-SNAPSHOT locally first because of https://issues.jboss.org/browse/WELD-2435 or choose OpenWebBeans profile._
 
-`mvn clean package -Pweld`
+### Build Weld 3.0.5-SNAPSHOT locally
 
-_Note: Depends on https://issues.jboss.org/browse/WELD-2435 fix._
+1. Clone `https://github.com/weld/core.git`
+
+2. Execute `mvn install`
+
+### Package using with OpenWebBeans 2 for CDI (owb profile)
+
+`mvn clean package -Powb`
 
 ### Run using the default JRE
 
