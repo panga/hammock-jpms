@@ -1,4 +1,4 @@
-FROM openjdk:10 as builder
+FROM openjdk:10.0.1 as builder
 
 RUN jlink \
     --add-modules java.logging,java.xml,java.naming,java.management,jdk.unsupported \
