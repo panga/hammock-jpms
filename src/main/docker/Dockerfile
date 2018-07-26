@@ -1,4 +1,4 @@
-FROM openjdk:10.0.1 as builder
+FROM panga/openjdk-alpine:11-jdk as builder
 
 RUN jlink \
     --add-modules java.logging,java.xml,java.naming,java.management,jdk.unsupported \
@@ -9,7 +9,7 @@ RUN jlink \
     --no-man-pages \
     --output /opt/jre-minimal
 
-FROM panga/alpine:3.7-glibc2.25
+FROM alpine:3.8
 
 COPY --from=builder /opt/jre-minimal /opt/jre-minimal
 
