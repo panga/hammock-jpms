@@ -6,15 +6,13 @@ The stack uses Weld 3 for CDI, RestEasy 3.5 for JAX-RS and Johnzon 1.1 for JSON
 
 The total size of this example application is around `12mb` and the full Docker image is only `58mb`!
 
-_Note: Tested with Java 10.0.1_
+_Note: Tested with JDK 11+23 (ea)_
 
 ## How To
 
 ### Package and generate `target/modules` folder (weld profile)
 
 `mvn clean package`
-
-_Note: Need to build Weld 3.0.5-SNAPSHOT locally first because of https://issues.jboss.org/browse/WELD-2435 or choose OpenWebBeans profile._
 
 ### Package and generate `docker image` (docker + weld profiles)
 
