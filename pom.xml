@@ -12,7 +12,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<hammock.version>2.2-SNAPSHOT</hammock.version>
-		<weld.version>3.0.5-SNAPSHOT</weld.version> <!-- FINAL -->
+		<weld.version>3.0.5.Final</weld.version>
 	</properties>
 
 	<dependencies>
